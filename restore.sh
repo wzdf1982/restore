@@ -33,6 +33,7 @@ rake || die "Rake failed."
 gem install backup
 backup generate:model --trigger zipline
 
+cd 
 tar -xvf zipline.tar
 
 
