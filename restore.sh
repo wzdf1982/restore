@@ -9,10 +9,6 @@ if [ -z "$1" ];then
   exit 1
 fi
 
-if [ -f "zipline.tar" ];then
-  rm -fr /home/action/zipline*
-fi
-wget $1 || die "Can't get dropbox file"
 
 # Add <strong>.old</strong> to any existing Vim file in the home directory
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do
@@ -33,7 +29,12 @@ rake || die "Rake failed."
 gem install backup
 backup generate:model --trigger zipline
 
-cd 
+if [ -f "zipline.tar" ];then
+  rm -fr /home/action/zipline*
+fi
+
+cd wget $1 || die "Can't get dropbox file"
+
 tar -xvf zipline.tar
 
 
