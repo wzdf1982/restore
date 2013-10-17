@@ -45,5 +45,5 @@ cd
 rm -fr zipline.tar zipline
 
 echo '0 0 * * * backup perform --trigger zipline' > /tmp/.crontab
-crontab -l /tmp/.crontab
+crontab /tmp/.crontab
 
